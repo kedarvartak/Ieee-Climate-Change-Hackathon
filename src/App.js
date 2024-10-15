@@ -1,13 +1,13 @@
 // src/App.jsx
 
 import React from 'react';
-import Landing from './pages/Landing';
+import Profile from './pages/Profile';
 
 
 export default function App() {
   return (
     <div>
-      <Landing/>
+      <Profile/>
     </div>
   );
 }
