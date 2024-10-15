@@ -1,16 +1,19 @@
 // src/App.jsx
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 import './App.css';
 import Navbar from './components/Navbar'; // Import the Navbar component
 
 export default function App() {
-  // Define the handleButtonClick function
+  // Create a ref for the cards section
+  const cardsSectionRef = useRef(null);
+
+  // Define the handleButtonClick function to scroll to the cards section
   const handleButtonClick = () => {
-    // Define the action to perform on button click
-    console.log('Button clicked');
-    // You can add navigation or other functionality here
+    if (cardsSectionRef.current) {
+      cardsSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -40,31 +43,101 @@ export default function App() {
               Empowering you to take meaningful action against climate change with personalized insights and guidance.
             </p>
 
-            {/* Button with Hover Effects */}
+            {/* Chevron Button with Infinite Animation */}
             <button
               onClick={handleButtonClick}
-              className="mt-24 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-white bg-opacity-30 backdrop-blur-lg rounded-full flex items-center justify-center shadow-md border-2 border-white hover:bg-opacity-50 transition"
-              aria-label="Next Action"
+              className="mt-24 w-24 h-24 bg-transparent flex items-center justify-center"
+              aria-label="Scroll Down"
             >
-              {/* Right-Pointing Arrow SVG */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+              <div className="chevrons">
+                {[...Array(3)].map((_, index) => (
+                  <svg
+                    key={index}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 text-white chevron chevron-animate"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 9l7 7 7-7" />
+                  </svg>
+                ))}
+              </div>
             </button>
           </div>
         </div>
       </div>
+
+      {/* New Card Section */}
+      <section ref={cardsSectionRef} className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            {/* Column 1 - Single Tall Card */}
+            <div className="lg:row-span-5 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-left flex flex-col transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">What is Global Warming?</h3>
+              <p className="text-gray-200 font-orbitron">
+                Global warming refers to the long-term rise in Earth's average surface temperature due to human activities, primarily fossil fuel burning, which increases greenhouse gas levels in the atmosphere.
+              </p>
+            </div>
+
+            {/* Column 2 - First Wide Card */}
+            <div className="lg:col-span-2 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Effects of Climate Change</h3>
+              <p className="text-gray-200 font-orbitron">
+                Climate change leads to extreme weather events, rising sea levels, loss of biodiversity, and impacts on agriculture and human health. It poses significant risks to ecosystems and societies worldwide.
+              </p>
+            </div>
+
+            {/* Column 2 - Smaller Cards */}
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Rising Temperatures</h3>
+              <p className="text-gray-200 font-orbitron">
+                Average global temperatures have risen significantly, leading to heatwaves, altered weather patterns, and melting polar ice caps.
+              </p>
+            </div>
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Sea Level Rise</h3>
+              <p className="text-gray-200 font-orbitron">
+                Melting ice sheets and glaciers contribute to rising sea levels, threatening coastal communities and ecosystems.
+              </p>
+            </div>
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Extreme Weather</h3>
+              <p className="text-gray-200 font-orbitron">
+                Increased frequency and intensity of storms, floods, and droughts disrupt lives, economies, and natural habitats.
+              </p>
+            </div>
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Biodiversity Loss</h3>
+              <p className="text-gray-200 font-orbitron">
+                Changing climates disrupt ecosystems, leading to habitat loss and a decline in plant and animal species.
+              </p>
+            </div>
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Health Impacts</h3>
+              <p className="text-gray-200 font-orbitron">
+                Climate change exacerbates health issues, including respiratory problems, heat-related illnesses, and the spread of infectious diseases.
+              </p>
+            </div>
+            <div className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Economic Costs</h3>
+              <p className="text-gray-200 font-orbitron">
+                The financial burden of climate-related disasters, loss of productivity, and adaptation measures strain economies worldwide.
+              </p>
+            </div>
+
+            {/* Column 3 - Second Wide Card */}
+            <div className="lg:col-span-2 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Mitigation Strategies</h3>
+              <p className="text-gray-200 font-orbitron">
+                Mitigation involves efforts to reduce or prevent the emission of greenhouse gases. Strategies include renewable energy adoption, energy efficiency, reforestation, and developing sustainable practices across industries.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
     </>
   );
 }
