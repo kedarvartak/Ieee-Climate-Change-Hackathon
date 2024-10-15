@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import Spline from '@splinetool/react-spline';
 import './App.css';
 import Navbar from './components/Navbar'; // Import the Navbar component
+import des from './pages/des.png'; // Imported des.png
 
 export default function App() {
   // Create a ref for the cards section
@@ -34,7 +35,7 @@ export default function App() {
           {/* Header Text, Description, and Button */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 px-4">
             {/* Header Text */}
-            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl xl:text-[200px] 2xl:text-[250px] font-caramel text-white font-bold m-0 leading-none">
+            <h1 className="text-9xl  xl:text-[200px] 2xl:text-[250px] font-caramel text-white font-bold m-0 leading-none">
               Climate Cassy
             </h1>
 
@@ -57,7 +58,7 @@ export default function App() {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 text-white chevron chevron-animate"
+                    className="h-12 w-12 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 text-white chevron chevron-animate"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 9l7 7 7-7" />
                   </svg>
@@ -74,11 +75,20 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             {/* Column 1 - Single Tall Card */}
-            <div className="lg:row-span-5 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-left flex flex-col transition transform hover:scale-105 hover:shadow-2xl">
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">What is Global Warming?</h3>
+            <div
+              className="lg:row-span-5 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-left flex flex-col relative overflow-hidden transition transform hover:scale-105 hover:shadow-2xl"
+            >
+              {/* Existing Content */}
+              <h3 className="text-[80px] font-bold text-red-600 mb-4 font-stalemate">What is Global Warming?</h3>
               <p className="text-gray-200 font-orbitron">
                 Global warming refers to the long-term rise in Earth's average surface temperature due to human activities, primarily fossil fuel burning, which increases greenhouse gas levels in the atmosphere.
               </p>
+
+              {/* Adjusted Bottom Half Background Image */}
+              <div
+                className="absolute bottom-[-20px] left-0 w-full h-1/2 bg-cover bg-center"
+                style={{ backgroundImage: `url(${des})` }}
+              />
             </div>
 
             {/* Column 2 - First Wide Card */}
