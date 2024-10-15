@@ -6,6 +6,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        scrollLeftToRight: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        scrollRightToLeft: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        scrollLeftToRight: 'scrollLeftToRight 20s linear infinite',
+        scrollRightToLeft: 'scrollRightToLeft 20s linear infinite',
+      },
+
       backdropBlur: {
         'none': '0',
         'sm': '4px',

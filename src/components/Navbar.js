@@ -1,9 +1,55 @@
-// Navbar.jsx
+// src/components/Navbar.jsx
 
-import React from 'react';
-import { Bars3Icon } from '@heroicons/react/24/outline'; // Importing the hamburger icon
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Bars3Icon, 
+  XMarkIcon, 
+  ChatBubbleLeftIcon, 
+  MapPinIcon, 
+  PuzzlePieceIcon, 
+  DocumentTextIcon, 
+  UserCircleIcon 
+} from '@heroicons/react/24/outline'; // Importing necessary icons
+import { Link } from 'react-router-dom'; // For internal navigation
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest('button')) {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  // Close menu on Esc key press
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   return (
     <>
       {/* Import Allison and Caramel fonts via a style tag */}
@@ -11,7 +57,6 @@ export default function Navbar() {
         {`
           @import url('https://fonts.googleapis.com/css2?family=Allison&family=Caramel&display=swap');
           
-
           .font-allison {
             font-family: 'Allison', cursive;
           }
@@ -20,7 +65,6 @@ export default function Navbar() {
             font-weight: 400;
             font-style: normal;
           }
-          
         `}
       </style>
 
@@ -29,24 +73,92 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Website Name "Cassy" */}
             <div className="flex-shrink-0">
-              {/* Wrap the website name in a link to navigate to the homepage */}
-              <a href="/" className="text-white text-6xl font-caramel">
+              <Link to="/" className="text-white text-6xl font-caramel">
                 Cassy
-              </a>
+              </Link>
             </div>
 
             {/* Hamburger Menu Icon */}
             <div className="flex-shrink-0">
               <button
                 type="button"
-                className="text-white hover:text-gray-300 focus:outline-none"
-                aria-label="Open Menu"
+                onClick={toggleMenu}
+                className="text-white mt-5 hover:text-gray-300 focus:outline-none"
+                aria-label={isOpen ? "Close Menu" : "Open Menu"}
+                aria-expanded={isOpen}
+                aria-controls="navbar-menu"
               >
-                <Bars3Icon className="h-8 w-8 mt-5" />
+                {isOpen ? (
+                  <XMarkIcon className="h-8 w-8" /> // X icon when menu is open
+                ) : (
+                  <Bars3Icon className="h-8 w-8" /> // Hamburger icon when menu is closed
+                )}
               </button>
             </div>
           </div>
         </div>
+
+        {/* Slide-down Menu Panel */}
+        <div
+          ref={menuRef}
+          id="navbar-menu"
+          className={`fixed top-20 left-0 right-0 bg-white bg-opacity-20 backdrop-blur-md border-t border-white p-6 rounded-b-lg shadow-lg transform transition-all duration-300 ease-in-out ${
+            isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          }`}
+        >
+          <div className="flex flex-col space-y-6">
+            {/* Navigation Links with Icons */}
+            <Link
+              to="/forum"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu} // Close menu when link is clicked
+            >
+              <ChatBubbleLeftIcon className="h-6 w-6 mr-3" />
+              Forum
+            </Link>
+            <Link
+              to="/garbage-disposal"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu}
+            >
+              <MapPinIcon className="h-6 w-6 mr-3" />
+              Garbage Disposal Map
+            </Link>
+            <Link
+              to="/game"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu}
+            >
+              <PuzzlePieceIcon className="h-6 w-6 mr-3" />
+              Climate Game
+            </Link>
+            <Link
+              to="/climate-docs"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu}
+            >
+              <DocumentTextIcon className="h-6 w-6 mr-3" />
+              Climate Docs
+            </Link>
+            <Link
+              to="/profile"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu}
+            >
+              <UserCircleIcon className="h-6 w-6 mr-3" />
+              Profile
+            </Link>
+          </div>
+        </div>
+
+        {/* Overlay */}
+        {isOpen && (
+          <div
+            className="fixed inset-0 z-40 bg-black bg-opacity-50"
+            onClick={toggleMenu}
+            aria-hidden="true"
+          ></div>
+        )}
       </nav>
     </>
   );
