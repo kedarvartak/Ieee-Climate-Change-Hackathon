@@ -2,7 +2,6 @@
 - **[LIVE PROJECT DEMO LINK](https://ieee-climate-change-hackathon.vercel.app):** 
 Welcome to **Climate Cassy** — an interactive platform designed to empower individuals to take meaningful action against climate change. Our web application provides personalized insights, educational resources, and engaging tools to help users understand and combat the pressing issues of climate change.
 
-![Climate Cassy Banner](./assets/banner.png)
 
 ## Table of Contents
 
@@ -153,9 +152,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-- **Project Maintainer:** Your Name
-- **Email:** your.email@example.com
-- **GitHub:** [your-username](https://github.com/your-username)
+- **Project Maintainer:** Kedar Vartak
+- **Email:** kedar.vartak22@vit.edu
+- **GitHub:** [kedarvartak](https://github.com/kedarvartak)
 
 ---
 
