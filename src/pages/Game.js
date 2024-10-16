@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Spline from '@splinetool/react-spline';
 
 export default function Game() {
@@ -65,7 +64,6 @@ export default function Game() {
             </button>
           </div>
         )}
-        <Footer />
       </div>
     </>
   );

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import { useGeolocated } from 'react-geolocated';
 import 'leaflet/dist/leaflet.css';
@@ -226,7 +226,7 @@ export default function Garbage() {
         )}
       </div>
 
-      <Footer />
+      
     </div>
   );
 }

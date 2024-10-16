@@ -1,8 +1,7 @@
 // src/pages/Profile.jsx
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import {
   format,
   subDays,
@@ -10,31 +9,13 @@ import {
   isAfter,
   startOfWeek,
 } from 'date-fns';
+import { ActivityContext } from '../components/ActivityContext';
 
 export default function Profile() {
+  const { activityData } = useContext(ActivityContext);
+
   const today = new Date();
   const startDate = subDays(today, 364); // Past 365 days including today
-
-  // Define specific active days (e.g., today, yesterday, etc.)
-  const activeDays = [
-    format(today, 'yyyy-MM-dd'),
-    format(subDays(today, 1), 'yyyy-MM-dd'),
-    format(subDays(today, 2), 'yyyy-MM-dd'),
-    format(subDays(today, 3), 'yyyy-MM-dd'),
-    format(subDays(today, 4), 'yyyy-MM-dd'),
-  ];
-
-  // Simulate activity data for each day in the past year
-  const activityData = {};
-
-  for (let i = 0; i <= 364; i++) {
-    const date = subDays(today, i);
-    const dateString = format(date, 'yyyy-MM-dd');
-    activityData[dateString] = {
-      date,
-      active: activeDays.includes(dateString),
-    };
-  }
 
   // Generate weeks data for the calendar grid
   const weeks = [];
@@ -48,12 +29,28 @@ export default function Profile() {
       if (isAfter(day, today)) {
         week.push(null); // Future dates
       } else {
-        week.push(activityData[dateString] || { date: day, active: false });
+        week.push(activityData[dateString] || { date: day, tasksCompleted: 0 });
       }
     }
     weeks.push(week);
     date = addDays(date, 7);
   }
+
+  // Function to get color based on tasks completed
+  const getActivityColor = (tasksCompleted) => {
+    if (tasksCompleted === 0) {
+      return 'bg-transparent';
+    } else if (tasksCompleted === 1) {
+      return 'bg-green-200';
+    } else if (tasksCompleted === 2) {
+      return 'bg-green-400';
+    } else if (tasksCompleted === 3) {
+      return 'bg-green-600';
+    } else if (tasksCompleted >= 4) {
+      return 'bg-green-800';
+    }
+    return 'bg-transparent';
+  };
 
   return (
     <>
@@ -73,8 +70,7 @@ export default function Profile() {
         <div className="relative container mx-auto py-12 px-4 md:px-8 lg:px-16">
           {/* Background Image */}
           <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center opacity-20 z-0"
-            style={{ backgroundImage: `url('https://via.placeholder.com/1920x400')` }}
+            className="absolute inset-0 w-full bg-slate-800 h-full bg-cover bg-center opacity-20 z-0"
           ></div>
           {/* Profile Header */}
           <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start mb-12 bg-white bg-opacity-10 p-6 md:p-8 rounded-lg backdrop-blur-lg shadow-lg">
@@ -85,7 +81,7 @@ export default function Profile() {
             />
             <div className="text-center md:text-left">
               <h1 className="text-3xl md:text-5xl font-caramel">Clark Kent</h1>
-              <p className="text-md md:text-xl text-gray-300 mt-2">Rank: #12345</p>
+              <p className="text-md md:text-xl text-gray-300 mt-2">Rank: #2300</p>
               <div className="mt-2 flex justify-center md:justify-start space-x-3">
                 <span className="px-4 py-1 bg-green-500 rounded-full text-xs">Active</span>
                 <span className="px-4 py-1 bg-red-500 rounded-full text-xs">Cassy Rank 2300</span>
@@ -96,17 +92,12 @@ export default function Profile() {
           {/* Achievements or Stats Section */}
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
             <div className="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur-lg text-center">
-              <h3 className="text-2xl md:text-3xl font-semibold text-green-400">Total Challenges</h3>
-              <p className="mt-4 text-4xl md:text-5xl font-bold text-white">350</p>
+              <h3 className="text-2xl md:text-3xl font-semibold text-green-400">Total Tasks Completed</h3>
+              <p className="mt-4 text-4xl md:text-5xl font-bold text-white">
+                {Object.values(activityData).reduce((acc, day) => acc + day.tasksCompleted, 0)}
+              </p>
             </div>
-            <div className="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur-lg text-center">
-              <h3 className="text-2xl md:text-3xl font-semibold text-yellow-400">Longest Streak</h3>
-              <p className="mt-4 text-4xl md:text-5xl font-bold text-white">45 days</p>
-            </div>
-            <div className="bg-white bg-opacity-20 p-6 rounded-lg shadow-lg backdrop-blur-lg text-center">
-              <h3 className="text-2xl md:text-3xl font-semibold text-blue-400">Current Streak</h3>
-              <p className="mt-4 text-4xl md:text-5xl font-bold text-white">10 days</p>
-            </div>
+            {/* Add other stats as needed */}
           </div>
 
           {/* Activity Calendar Section */}
@@ -147,11 +138,13 @@ export default function Profile() {
                       <div
                         key={j}
                         className={`w-6 h-6 md:w-8 md:h-8 rounded-md border border-white ${
-                          day && day.active ? 'bg-green-500' : 'bg-transparent'
+                          day
+                            ? getActivityColor(day.tasksCompleted)
+                            : 'bg-transparent'
                         } transition transform hover:scale-110 hover:shadow-lg`}
                         title={`Date: ${
                           day ? format(day.date, 'yyyy-MM-dd') : ''
-                        }, Active: ${day && day.active ? 'Yes' : 'No'}`}
+                        }, Tasks Completed: ${day ? day.tasksCompleted : 0}`}
                       ></div>
                     ))}
                   </div>
@@ -161,12 +154,6 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
-}
-
-function getActivityColor(count) {
-  // This function is no longer needed as we're handling active days differently
-  return '';
 }

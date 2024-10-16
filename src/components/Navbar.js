@@ -9,8 +9,8 @@ import {
   PuzzlePieceIcon, 
   DocumentTextIcon, 
   UserCircleIcon 
-} from '@heroicons/react/24/outline'; // Importing necessary icons
-import { Link } from 'react-router-dom'; // For internal navigation
+} from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,6 +65,9 @@ export default function Navbar() {
             font-weight: 400;
             font-style: normal;
           }
+          .font-orbitron {
+            font-family: 'Orbitron', sans-serif; /* Ensure this font is imported if used */
+          }
         `}
       </style>
 
@@ -102,7 +105,7 @@ export default function Navbar() {
         <div
           ref={menuRef}
           id="navbar-menu"
-          className={`fixed top-20 left-0 right-0 bg-white bg-opacity-20 backdrop-blur-md border-t border-white p-6 rounded-b-lg shadow-lg transform transition-all duration-300 ease-in-out ${
+          className={`fixed top-20 left-0 right-0 bg-black bg-opacity-80 backdrop-blur-md border-t border-white p-6 rounded-b-lg shadow-lg transform transition-all duration-300 ease-in-out z-50 ${
             isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
           }`}
         >
@@ -111,13 +114,13 @@ export default function Navbar() {
             <Link
               to="/forum"
               className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
-              onClick={toggleMenu} // Close menu when link is clicked
+              onClick={toggleMenu}
             >
               <ChatBubbleLeftIcon className="h-6 w-6 mr-3" />
               Forum
             </Link>
             <Link
-              to="/garbage-disposal"
+              to="/garbage"
               className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
               onClick={toggleMenu}
             >
@@ -133,12 +136,20 @@ export default function Navbar() {
               Climate Game
             </Link>
             <Link
-              to="/climate-docs"
+              to="/doomsday"
               className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
               onClick={toggleMenu}
             >
               <DocumentTextIcon className="h-6 w-6 mr-3" />
-              Climate Docs
+              Doomsday Clock
+            </Link>
+            <Link
+              to="/blogpage"
+              className="flex items-center text-white text-2xl font-orbitron hover:text-gray-300 transition"
+              onClick={toggleMenu}
+            >
+              <UserCircleIcon className="h-6 w-6 mr-3" />
+              Blogs
             </Link>
             <Link
               to="/profile"

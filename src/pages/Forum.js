@@ -2,20 +2,19 @@
 
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import Post from '../components/Post';
 import NewPostForm from '../components/NewPostForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function Forum() {
-  // Sample initial posts data with placeholder.co images
+  // Sample initial posts data with Unsplash images
   const [posts, setPosts] = useState([
     {
       id: 1,
       username: 'EcoWarrior',
       avatar: 'https://i.pravatar.cc/150?img=1',
-      image: 'https://via.placeholder.com/800x1000.png?text=Eco+Warrior+Post',
+      image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZvcmVzdCUyMHBsYW50aW5nfGVufDB8fHx8MTYwOTk0MzA2Mw&ixlib=rb-1.2.1&q=80&w=800',
       caption: 'Planting trees to combat deforestation! 🌳 #ClimateAction',
       likes: 120,
       comments: [
@@ -27,7 +26,7 @@ export default function Forum() {
       id: 2,
       username: 'GreenGenius',
       avatar: 'https://i.pravatar.cc/150?img=2',
-      image: 'https://via.placeholder.com/800x1000.png?text=Eco+Warrior+Post',
+      image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDF8fGZvcmVzdCUyMHBsYW50aW5nfGVufDB8fHx8MTYwOTk0MzA2Mw&ixlib=rb-1.2.1&q=80&w=800',
       caption: 'Reducing plastic usage is crucial for our oceans. 🌊 #SaveTheSea',
       likes: 95,
       comments: [
@@ -97,7 +96,6 @@ export default function Forum() {
         <FontAwesomeIcon icon={faPlus} size="lg" />
       </button>
 
-
       {/* Modal for Adding Post */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -116,8 +114,6 @@ export default function Forum() {
           </div>
         </div>
       )}
-
-      <Footer />
     </div>
   );
 }

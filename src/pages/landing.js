@@ -6,14 +6,13 @@ import '../pages/App.css';
 import Navbar from '../components/Navbar';
 import Ticker from '../components/Ticker';
 import Blog from '../components/blog';
-import Footer from '../components/Footer';
 import Cassy from '../components/Cassy';
-import { useNavigate, Link } from 'react-router-dom'; // Import Link
+import { useNavigate, Link } from 'react-router-dom';
 import Blob from '../components/Blob';
 
 export default function Landing() {
   const cardsSectionRef = useRef(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     if (cardsSectionRef.current) {
@@ -21,7 +20,6 @@ export default function Landing() {
     }
   };
 
-  // Define navigation handlers for each card
   const navigateTo = (path) => {
     navigate(path);
   };
@@ -85,9 +83,11 @@ export default function Landing() {
             {/* Column 1 - Single Tall Card */}
             <div
               className="lg:row-span-5 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-left flex flex-col relative overflow-hidden transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
-              onClick={() => navigateTo('/what-is-global-warming')} // Add onClick handler
+              onClick={() => navigateTo('/what-is-global-warming')}
             >
-              <h3 className="text-[80px] font-bold text-red-600 mb-4 font-caramel">What is Global Warming?</h3>
+              <h1 className="text-5xl xl:text-[70px] text-center mb-5 2xl:text-[100px] font-caramel text-red-600 font-bold m-0 leading-none">
+              What is Climate Change?
+              </h1>
               <p className="text-gray-200 font-orbitron">
                 Global warming refers to the long-term rise in Earth's average surface temperature due to human activities, primarily fossil fuel burning, which increases greenhouse gas levels in the atmosphere.
               </p>
@@ -97,9 +97,11 @@ export default function Landing() {
             {/* Column 2 - First Wide Card */}
             <div
               className="lg:col-span-2 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
-              onClick={() => navigateTo('/effects-of-climate-change')} // Add onClick handler
+              onClick={() => navigateTo('/effects-of-climate-change')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Effects of Climate Change</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 font-orbitron">
+                Effects of Climate Change
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Climate change leads to extreme weather events, rising sea levels, loss of biodiversity, and impacts on agriculture and human health. It poses significant risks to ecosystems and societies worldwide.
               </p>
@@ -110,7 +112,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/rising-temperatures')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Rising Temperatures</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Rising Temperatures
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Average global temperatures have risen significantly, leading to heatwaves, altered weather patterns, and melting polar ice caps.
               </p>
@@ -119,7 +123,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/sea-level-rise')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Sea Level Rise</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Sea Level Rise
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Melting ice sheets and glaciers contribute to rising sea levels, threatening coastal communities and ecosystems.
               </p>
@@ -128,7 +134,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/extreme-weather')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Extreme Weather</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Extreme Weather
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Increased frequency and intensity of storms, floods, and droughts disrupt lives, economies, and natural habitats.
               </p>
@@ -137,7 +145,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/biodiversity-loss')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Biodiversity Loss</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Biodiversity Loss
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Changing climates disrupt ecosystems, leading to habitat loss and a decline in plant and animal species.
               </p>
@@ -146,7 +156,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/health-impacts')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Health Impacts</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Health Impacts
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Climate change exacerbates health issues, including respiratory problems, heat-related illnesses, and the spread of infectious diseases.
               </p>
@@ -155,7 +167,9 @@ export default function Landing() {
               className="lg:col-span-1 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/economic-costs')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Economic Costs</h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 mb-4 font-orbitron">
+                Economic Costs
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 The financial burden of climate-related disasters, loss of productivity, and adaptation measures strain economies worldwide.
               </p>
@@ -166,7 +180,9 @@ export default function Landing() {
               className="lg:col-span-2 bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg p-6 text-center transition transform hover:scale-105 hover:shadow-2xl cursor-pointer"
               onClick={() => navigateTo('/mitigation-strategies')}
             >
-              <h3 className="text-2xl font-bold text-red-600 mb-4 font-orbitron">Mitigation Strategies</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-4 font-orbitron">
+                Mitigation Strategies
+              </h3>
               <p className="text-gray-200 font-orbitron">
                 Mitigation involves efforts to reduce or prevent the emission of greenhouse gases. Strategies include renewable energy adoption, energy efficiency, reforestation, and developing sustainable practices across industries.
               </p>
@@ -179,9 +195,9 @@ export default function Landing() {
       <section className="py-20 bg-black">
         <div className="container mx-auto px-4 text-center">
           {/* Header */}
-          <h2 className="text-[150px] font-bold text-white mb-4 font-caramel">
-            Take Action Now
-          </h2>
+          <h1 className="text-7xl xl:text-[130px] 2xl:text-[150px] font-caramel text-white font-bold m-0 leading-none">
+              Take Action now
+          </h1>
           {/* Small Description */}
           <p className="text-xl text-gray-200 mb-12 font-orbitron">
             Discover how you can make a difference in combating climate change.
@@ -191,11 +207,11 @@ export default function Landing() {
             {/* Card 1: Join Our Forum */}
             <div
               className="group relative bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl h-80 cursor-pointer"
-              onClick={() => navigateTo('/forum')} // Link to Forum page
+              onClick={() => navigateTo('/forum')}
             >
               {/* Card Content */}
               <div className="flex items-center justify-center h-full transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="text-2xl font-bold text-red-600 font-orbitron">
+                <h3 className="text-2xl sm:text-3xl font-bold text-red-600 font-orbitron">
                   Join Our Forum
                 </h3>
               </div>
@@ -205,7 +221,7 @@ export default function Landing() {
                   Share your ideas and tactics to combat climate change without donating.
                 </p>
                 <Link
-                  to="/forum" // Navigate to Forum page
+                  to="/forum"
                   className="text-red-600 underline font-orbitron"
                 >
                   Know More
@@ -216,11 +232,11 @@ export default function Landing() {
             {/* Card 2: Interactive Climate Game */}
             <div
               className="group relative bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl h-80 cursor-pointer"
-              onClick={() => navigateTo('/game')} // Link to Game page
+              onClick={() => navigateTo('/game')}
             >
               {/* Card Content */}
               <div className="flex items-center justify-center h-full transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="text-2xl font-bold text-red-600 font-orbitron">
+                <h3 className="text-2xl sm:text-3xl font-bold text-red-600 font-orbitron">
                   Interactive Climate Game
                 </h3>
               </div>
@@ -230,7 +246,7 @@ export default function Landing() {
                   Understand climate change and tackle issues in a fun, gamified way.
                 </p>
                 <Link
-                  to="/game" // Navigate to Game page
+                  to="/game"
                   className="text-red-600 underline font-orbitron"
                 >
                   Know More
@@ -241,11 +257,11 @@ export default function Landing() {
             {/* Card 3: Find Garbage Disposal */}
             <div
               className="group relative bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl h-80 cursor-pointer"
-              onClick={() => navigateTo('/garbage-disposal')} // Link to Garbage Disposal page
+              onClick={() => navigateTo('/garbage')}
             >
               {/* Card Content */}
               <div className="flex items-center justify-center h-full transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="text-2xl font-bold text-red-600 font-orbitron">
+                <h3 className="text-2xl sm:text-3xl font-bold text-red-600 font-orbitron">
                   Find Garbage Disposal
                 </h3>
               </div>
@@ -255,7 +271,7 @@ export default function Landing() {
                   Locate the nearest garbage disposal and other environmental activities with our interactive map.
                 </p>
                 <Link
-                  to="/garbage-disposal" // Navigate to Garbage Disposal page
+                  to="/garbage-disposal"
                   className="text-red-600 underline font-orbitron"
                 >
                   Know More
@@ -266,21 +282,21 @@ export default function Landing() {
             {/* Card 4: Environmental Docs */}
             <div
               className="group relative bg-white bg-opacity-20 backdrop-blur-lg border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl h-80 cursor-pointer"
-              onClick={() => navigateTo('/environmental-docs')} // Link to Environmental Docs page
+              onClick={() => navigateTo('/doomsday')}
             >
               {/* Card Content */}
               <div className="flex items-center justify-center h-full transition-opacity duration-300 group-hover:opacity-0">
-                <h3 className="text-2xl font-bold text-red-600 font-orbitron">
+                <h3 className="text-2xl sm:text-3xl font-bold text-red-600 font-orbitron">
                   Doomsday Clock
                 </h3>
               </div>
               {/* Overlay for Hover Effect */}
               <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-md flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 p-4">
                 <p className="text-gray-200 mb-4 font-orbitron">
-                  A clock that predicts the world end if we dont take action now.
+                  A clock that predicts the world end if we don't take action now.
                 </p>
                 <Link
-                  to="/environmental-docs" // Navigate to Environmental Docs page
+                  to="/environmental-docs"
                   className="text-red-600 underline font-orbitron"
                 >
                   Know More
@@ -290,13 +306,13 @@ export default function Landing() {
           </div>
         </div>
       </section>
-      
+
       {/* Other Components */}
-      <Ticker />  
-      <Blog />  
-      <Footer />   
-      <Cassy /> 
-      <Blob/>          
+      <Ticker />
+      <Blog />
+     
+      <Cassy />
+      <Blob />
     </>
   );
 }

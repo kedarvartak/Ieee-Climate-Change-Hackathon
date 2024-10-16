@@ -1,6 +1,9 @@
 // src/components/Blob.jsx
-import React, { useState } from 'react';
+
+import React, { useState, useContext, useEffect } from 'react';
 import { FaTasks, FaTimes } from 'react-icons/fa';
+import { ActivityContext } from '../components/ActivityContext';
+import { format } from 'date-fns';
 
 export default function Blob() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +13,15 @@ export default function Blob() {
     { id: 3, text: 'Avoid plastic usage', completed: false },
     { id: 4, text: 'Use public transportation', completed: false },
   ]);
+
+  const { updateActivity } = useContext(ActivityContext);
+
+  // Update activity data whenever tasks change
+  useEffect(() => {
+    const tasksCompleted = tasks.filter((task) => task.completed).length;
+    const todayString = format(new Date(), 'yyyy-MM-dd');
+    updateActivity(todayString, tasksCompleted);
+  }, [tasks, updateActivity]);
 
   const toggleTask = (id) => {
     setTasks((prevTasks) =>
@@ -25,7 +37,7 @@ export default function Blob() {
 
   return (
     <>
-      {/* Floating Button for Blob (Glassmorphism) */}
+      {/* Floating Button for Blob */}
       <button
         onClick={toggleBlob}
         className="fixed bottom-6 left-6 w-16 h-16 bg-white bg-opacity-20 backdrop-blur-md border border-white text-white rounded-full shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-green-400 transition-transform transform hover:bg-opacity-30 hover:scale-110"
