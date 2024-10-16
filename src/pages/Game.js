@@ -32,8 +32,8 @@ export default function Game() {
             <p className="text-base md:text-lg font-orbitron text-gray-200 mb-4 lg:mb-6">
               Welcome to the EcoDrive challenge! You are in control of a car. Your
               goal is to navigate the environment without hitting any trees or
-              structures. You must follow the road and avoid obstacles. <br /> <span className='text-red-500'>
-              NOTE : THE GAME DOES NOT WORK ON MOBILE RESPONSIVE DEVICES DUE TO MISSING W, A, S, D KEYS  </span> <br /> Use the
+              structures. You must follow the road and avoid obstacles.
+              <br /> Use the
               following controls:
             </p>
             <ul className="text-base md:text-lg font-orbitron text-gray-200 mb-6 lg:mb-8 space-y-2">
