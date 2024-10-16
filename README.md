@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# Climate Cassy
+# Live project deployed on - ieee-climate-change-hackathon.vercel.app
+Welcome to **Climate Cassy** — an interactive platform designed to empower individuals to take meaningful action against climate change. Our web application provides personalized insights, educational resources, and engaging tools to help users understand and combat the pressing issues of climate change.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Climate Cassy Banner](./assets/banner.png)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [About the Project](#about-the-project)
+- [Features](#features)
+  - [Educational Resources](#educational-resources)
+  - [Take Action Now](#take-action-now)
+  - [Interactive Components](#interactive-components)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `npm start`
+## About the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Climate Cassy is more than just a website; it's a call to action. We aim to educate users about the causes and effects of climate change while providing practical tools to make a difference. Through a combination of interactive elements, educational content, and community engagement, we strive to inspire users to become active participants in the fight against climate change.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+### Educational Resources
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Our platform offers comprehensive information on:
 
-### `npm run build`
+- **What is Climate Change?**
+- **Effects of Climate Change:**
+  - Rising Temperatures
+  - Sea Level Rise
+  - Extreme Weather
+  - Biodiversity Loss
+  - Health Impacts
+  - Economic Costs
+- **Mitigation Strategies**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Each section provides detailed explanations, statistics, and real-world examples to help users understand the complexities of climate change.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Take Action Now
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We believe in empowering users to take immediate action. Our "Take Action Now" section includes:
 
-### `npm run eject`
+- **Join Our Forum:** Share ideas, tactics, and collaborate with others passionate about combating climate change.
+- **Interactive Climate Game:** Engage with climate issues in a fun, gamified way to better understand the challenges and solutions.
+- **Find Garbage Disposal:** Use our interactive map to locate the nearest garbage disposal facilities and participate in environmental activities.
+- **Doomsday Clock:** A visual representation predicting potential outcomes if immediate action isn't taken.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Interactive Components
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Spline 3D Scene:** An immersive 3D experience on our landing page created using [Spline](https://spline.design/).
+- **Blob Task Manager:** A sticky circular button that displays daily tasks for users to complete, promoting eco-friendly habits.
+- **LeetCode-like Calendar:** Visualize your daily task completion with a calendar that shades dates based on activity, encouraging consistent engagement.
+- **Ticker Component:** Animated ticker displaying environmental icons to raise awareness subtly.
+- **Responsive Design:** Ensures a seamless experience across various devices and screen sizes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Built With
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Our project leverages a modern web development stack:
 
-## Learn More
+- **[React](https://reactjs.org/):** A JavaScript library for building user interfaces.
+- **[React Router](https://reactrouter.com/):** Declarative routing for React applications.
+- **[Spline](https://spline.design/):** Tool for creating and integrating 3D scenes in web applications.
+- **[FontAwesome](https://fontawesome.com/):** Icon library for adding vector icons and social logos.
+- **[React Icons](https://react-icons.github.io/react-icons/):** Include popular icons in React projects easily.
+- **[Tailwind CSS](https://tailwindcss.com/):** A utility-first CSS framework for rapid UI development.
+- **[Date-fns](https://date-fns.org/):** Modern JavaScript date utility library.
+- **[React Context API](https://reactjs.org/docs/context.html):** For state management across components.
+- **[React Hooks](https://reactjs.org/docs/hooks-intro.html):** Utilize state and other React features without writing a class.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Getting Started
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To get a local copy up and running follow these simple steps.
 
-### Code Splitting
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Ensure you have **Node.js** and **npm** installed:
 
-### Analyzing the Bundle Size
+- [Node.js & npm](https://nodejs.org/en/download/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Installation
 
-### Making a Progressive Web App
+1. **Clone the repo**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   git clone https://github.com/your-username/climate-cassy.git
+   ```
 
-### Advanced Configuration
+2. **Navigate to the project directory**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   cd climate-cassy
+   ```
 
-### Deployment
+3. **Install NPM packages**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```bash
+   npm install
+   ```
 
-### `npm run build` fails to minify
+4. **Start the development server**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   npm start
+   ```
+
+   The app should now be running on [http://localhost:3000](http://localhost:3000).
+
+## Usage
+
+Explore the various sections of the application:
+
+- **Landing Page:** Provides an overview and quick navigation to key topics.
+- **Educational Sections:** Click on cards like "What is Climate Change?" to delve deeper into each topic.
+- **Forum:** Join discussions, share ideas, and connect with the community.
+- **Interactive Game:** Engage with climate scenarios in an interactive game environment.
+- **Blob Task Manager:** Access daily eco-tasks by clicking the floating blob button. Complete tasks to update your activity calendar.
+- **Profile Page:** Monitor your activity and task completion through a visually engaging calendar.
+
+## Contributing
+
+We welcome contributions that align with our mission to combat climate change.
+
+1. **Fork the Project**
+2. **Create your Feature Branch**
+
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+
+3. **Commit your Changes**
+
+   ```bash
+   git commit -m 'Add Your Feature'
+   ```
+
+4. **Push to the Branch**
+
+   ```bash
+   git push origin feature/YourFeature
+   ```
+
+5. **Open a Pull Request**
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Contact
+
+- **Project Maintainer:** Your Name
+- **Email:** your.email@example.com
+- **GitHub:** [your-username](https://github.com/your-username)
+
+---
+
+Thank you for your interest in Climate Cassy. Together, we can make a difference in the fight against climate change.
