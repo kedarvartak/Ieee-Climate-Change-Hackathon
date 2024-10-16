@@ -1,5 +1,6 @@
 # Climate Cassy
-# Live project deployed on - ieee-climate-change-hackathon.vercel.app
+# Live project deployed on - 
+ieee-climate-change-hackathon.vercel.app
 Welcome to **Climate Cassy** — an interactive platform designed to empower individuals to take meaningful action against climate change. Our web application provides personalized insights, educational resources, and engaging tools to help users understand and combat the pressing issues of climate change.
 
 ![Climate Cassy Banner](./assets/banner.png)
